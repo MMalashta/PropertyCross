@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Header, InstructionalText, RecentSearchesList } from '../components/propertySearch'
 
-export default class PropertySearch extends Component {
+class PropertySearch extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-        mode: 'init'
-    }
+    this.state = {}
 
     this.goToFaves = this.goToFaves.bind(this)
   }
@@ -23,10 +22,12 @@ export default class PropertySearch extends Component {
       <input type='text'/>
       <button>Go</button><button>My Location</button>
       {
-        this.state.mode === 'init' ?
+        this.props.mode === 'init' ?
           <RecentSearchesList /> :
           <div/>
       }
     </div>
   }
 }
+
+export default connect(({ mode }) => ({mode}))(PropertySearch)
