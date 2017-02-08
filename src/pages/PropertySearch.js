@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Header, InstructionalText, RecentSearchesList } from '../components/propertySearch'
+import store from '../store'
+import { push } from 'react-router-redux'
 
 class PropertySearch extends Component {
   constructor(props) {
@@ -12,7 +14,7 @@ class PropertySearch extends Component {
 
   goToFaves() {
     console.log('Privet', this)
-    //this.context.router.push('/favourites')
+    store.dispatch(push('/favourites'))
   }
 
   render() {
@@ -30,4 +32,4 @@ class PropertySearch extends Component {
   }
 }
 
-export default connect(({ mode }) => ({mode}))(PropertySearch)
+export default connect(({ search: { mode } }) => ({mode}))(PropertySearch)
