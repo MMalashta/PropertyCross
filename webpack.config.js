@@ -1,5 +1,6 @@
 import webpack from 'webpack'
 const hotModuleReplacementPlugin = new webpack.HotModuleReplacementPlugin()
+const noEmitOnErrorsPlugin = new webpack.NoEmitOnErrorsPlugin()
 
 export default {
   devtool: 'cheap-module-eval-source-map',
@@ -12,7 +13,8 @@ export default {
     filename: 'bundle.js'
   },
   plugins: [
-    hotModuleReplacementPlugin
+    hotModuleReplacementPlugin,
+    noEmitOnErrorsPlugin
   ],
   module: {
     loaders: [

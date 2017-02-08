@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class App extends Component {
+export default class PropertyListItem extends Component {
   render() {
     return <div>Hello</div>
   }
