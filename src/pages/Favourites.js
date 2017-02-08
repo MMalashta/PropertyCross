@@ -1,9 +1,13 @@
 import React from 'react'
 import PropertiesList from '../components/PropertiesList'
 
-const Favourites = () => <div className='favourites-form'>
+const Favourites = ({ properties = [] }) => <div className='favourites-form'>
   <span>Favourites</span>
-  <PropertiesList properties={[]}/>
+  {
+    properties.length ?
+      <PropertiesList properties={properties}/> :
+      <span>You have not added any properties to your favourites</span>
+  }
 </div>
 
 export default Favourites

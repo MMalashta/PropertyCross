@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import InstructionalText from '../components/propertySearch/InstructionalText'
-import Header from '../components/propertySearch/Header'
+import { Header, InstructionalText, RecentSearchesList } from '../components/propertySearch'
 
 export default class PropertySearch extends Component {
   constructor(props) {
     super(props)
     this.state = {
-
+        mode: 'init'
     }
 
     this.goToFaves = this.goToFaves.bind(this)
@@ -23,6 +22,11 @@ export default class PropertySearch extends Component {
       <InstructionalText/>
       <input type='text'/>
       <button>Go</button><button>My Location</button>
+      {
+        this.state.mode === 'init' ?
+          <RecentSearchesList /> :
+          <div/>
+      }
     </div>
   }
 }
