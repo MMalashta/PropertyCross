@@ -6,4 +6,4 @@ import reducer from './reducers'
 
 const routerMiddleware = createRouterMiddleware(browserHistory)
 
-export default createStore(reducer, composeWithDevTools(applyMiddleware(routerMiddleware)));
+export default createStore(reducer, composeWithDevTools(applyMiddleware(routerMiddleware)))

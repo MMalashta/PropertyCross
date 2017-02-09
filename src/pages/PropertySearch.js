@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Header, InstructionalText, RecentSearchesList } from '../components/propertySearch'
-import store from '../store'
 import { push } from 'react-router-redux'
+import { Header, InstructionalText, RecentSearchesList } from '../components/propertySearch'
+import { search } from '../actions/search.js'
+import { routs } from '../constants'
 
 class PropertySearch extends Component {
   constructor(props) {
@@ -10,19 +11,27 @@ class PropertySearch extends Component {
     this.state = {}
 
     this.goToFaves = this.goToFaves.bind(this)
+    this.search = this.search.bind(this)
   }
 
   goToFaves() {
-    console.log('Privet', this)
-    store.dispatch(push('/favourites'))
+    this.props.push(routs.FAVOURITES)
+  }
+
+  search() {
+    const term = this.refs.input.value
+
+    if (term) {
+      this.props.search(term)
+    }
   }
 
   render() {
     return <div className='property-search-form'>
       <Header goToFaves={this.goToFaves}/>
       <InstructionalText/>
-      <input type='text'/>
-      <button>Go</button><button>My Location</button>
+      <input type='text' ref='input'/>
+      <button onClick={this.search}>Go</button><button>My Location</button>
       {
         this.props.mode === 'init' ?
           <RecentSearchesList /> :
@@ -32,4 +41,7 @@ class PropertySearch extends Component {
   }
 }
 
-export default connect(({ search: { mode } }) => ({mode}))(PropertySearch)
+export default connect(({ search: { mode } }) => ({mode}), {
+  search,
+  push
+})(PropertySearch)

@@ -1,11 +1,8 @@
 import { combineReducers } from 'redux'
-import { routerReducer } from 'react-router-redux'
+import { routerReducer as routing } from 'react-router-redux'
+import search from './search'
 
-function search(state = {mode: 'init'}, action) {
-  return state;
-}
-
-export default  combineReducers({
-  routing: routerReducer,
+export default combineReducers({
+  routing,
   search
 })
