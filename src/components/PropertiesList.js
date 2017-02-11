@@ -2,8 +2,7 @@ import React from 'react'
 import PropertyListItem from './PropertyListItem'
 
 const PropertiesList = ({ properties }) => <div>
-  <span>List</span>
-  {properties.map(() => <PropertyListItem/>)}
+  {properties.map((property) => <PropertyListItem property={property} />)}
 </div>
 
 export default PropertiesList

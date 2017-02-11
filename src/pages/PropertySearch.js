@@ -34,14 +34,14 @@ class PropertySearch extends Component {
       <button onClick={this.search}>Go</button><button>My Location</button>
       {
         this.props.mode === 'init' ?
-          <RecentSearchesList /> :
+          <RecentSearchesList searches={this.props.recentSearches}/> :
           <div/>
       }
     </div>
   }
 }
 
-export default connect(({ search: { mode } }) => ({mode}), {
+export default connect(({ search: { mode, recentSearches } }) => ({mode, recentSearches}), {
   search,
   push
 })(PropertySearch)
