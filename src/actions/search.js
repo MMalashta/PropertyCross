@@ -4,6 +4,7 @@ import {
   REORDER_RECENT_SEARCHES,
   UPDATE_PROPERTIES_LIST,
   APPEND_TO_PROPERTIES_LIST,
+  GET_SINGLE_PROPERTY,
   routs
 } from '../constants'
 import { push } from 'react-router-redux'
@@ -13,6 +14,11 @@ export const updatePropertiesList = (properties, status) => ({
   type: UPDATE_PROPERTIES_LIST,
   properties,
   status
+})
+
+export const getSinglePropery = (property) => ({
+  type: GET_SINGLE_PROPERTY,
+  property
 })
 
 export const addToRecentSearches = (term, total) => ({

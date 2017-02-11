@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 
-export default class PropertyListItem extends Component {
-  render() {
-    return <div>{this.props.property.title}</div>
-  }
+const PropertyListItem = ({ property, getProperty }) => {
+  const getPropertyItem = () => getProperty(property)
+
+  return <div onClick={getPropertyItem}>
+    {property.title}
+  </div>
 }
+
+export default PropertyListItem

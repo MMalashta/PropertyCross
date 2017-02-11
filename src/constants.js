@@ -3,8 +3,10 @@ export const ADD_TO_RECENT_SEARCHES = 'ADD_TO_RECENT_SEARCHES'
 export const REORDER_RECENT_SEARCHES = 'REORDER_RECENT_SEARCHES'
 export const UPDATE_PROPERTIES_LIST = 'UPDATE_PROPERTIES_LIST'
 export const APPEND_TO_PROPERTIES_LIST = 'APPEND_TO_PROPERTIES_LIST'
+export const GET_SINGLE_PROPERTY = 'GET_SINGLE_PROPERTY'
 
 export const routs = {
   FAVOURITES: '/favourites',
-  SEARCH_RESULTS: '/search-results'
+  SEARCH_RESULTS: '/search-results',
+  PROPERTY: '/property/'
 }

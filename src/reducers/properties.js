@@ -6,9 +6,9 @@ const properties = (state = [], action) => {
 
   switch (action.type) {
     case UPDATE_PROPERTIES_LIST:
-      return properties
+      return properties.map((property, index) => Object.assign(property, {id: index}))
     case APPEND_TO_PROPERTIES_LIST:
-      return [...state, ...properties]
+      return [...state, ...properties].map((property, index) => Object.assign(property, {id: index}))
   }
 
   return state
