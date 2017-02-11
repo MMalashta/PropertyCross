@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { UPDATE_PROPERTIES_LIST } from '../constants'
+import { APPEND_TO_PROPERTIES_LIST, UPDATE_PROPERTIES_LIST } from '../constants'
 
 const properties = (state = [], action) => {
   const { properties } = action
@@ -7,15 +7,17 @@ const properties = (state = [], action) => {
   switch (action.type) {
     case UPDATE_PROPERTIES_LIST:
       return properties
+    case APPEND_TO_PROPERTIES_LIST:
+      return [...state, ...properties]
   }
 
   return state
 }
 
 const status = (state = {}, action) => {
-  const { status } = action
+  const { type, status } = action
 
-  if (action.type === UPDATE_PROPERTIES_LIST)
+  if (type === UPDATE_PROPERTIES_LIST || type === APPEND_TO_PROPERTIES_LIST)
     return status
 
   return state;

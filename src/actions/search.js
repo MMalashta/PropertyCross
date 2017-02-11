@@ -3,6 +3,7 @@ import {
   ADD_TO_RECENT_SEARCHES,
   REORDER_RECENT_SEARCHES,
   UPDATE_PROPERTIES_LIST,
+  APPEND_TO_PROPERTIES_LIST,
   routs
 } from '../constants'
 import { push } from 'react-router-redux'
@@ -33,11 +34,30 @@ export const search = (term, recentIndex) => (dispatch) => searchApi(term)
       dispatch(updatePropertiesList(response.listings, {
         page: response.page,
         tatalPages: response.total_pages,
-        total: response.total_results
+        total: response.total_results,
+        term
       }))
       dispatch(push(routs.SEARCH_RESULTS))
       recentIndex ?
         dispatch(reorderRecentSearches(recentIndex)):
         dispatch(addToRecentSearches(term, response.total_results))
+    }
+  })
+
+export const loadMoreProperties = (term, page) => (dispatch) => searchApi(term, page)
+  .then(({ response }) => {
+    const { application_response_code: responseCode } = response
+
+    if (responseCode >= 100 && responseCode < 200) {
+      dispatch({
+        type: APPEND_TO_PROPERTIES_LIST,
+        properties: response.listings,
+        status: {
+          page: response.page,
+          tatalPages: response.total_pages,
+          total: response.total_results,
+          term
+        }
+      })
     }
   })
