@@ -1,10 +1,10 @@
 import React from 'react'
 
-const RecentSearchesList = ({ searches }) => <div>
+const RecentSearchesList = ({ searches, onSearch }) => <div>
   <span>Recent searches:</span>
   {
     searches.map((search, idx) => {
-      return <div>{`${search.term} (${search.total})`}</div>
+      return <div onClick={() => onSearch(search.term, idx)}>{`${search.term} (${search.total})`}</div>
     })
   }
 </div>

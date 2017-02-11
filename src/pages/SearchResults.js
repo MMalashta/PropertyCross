@@ -17,7 +17,7 @@ class SearchResults extends Component {
       { isMore } = this.state
 
     return <div className='search-result-form'>
-      <span>{`${properties.length} of ${status.total}`}</span>
+      <span>{`${properties.length} of ${status.total} matches`}</span>
       <PropertiesList properties={properties} />
       {isMore ? <button>Load more ...</button> : null}
     </div>

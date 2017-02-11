@@ -34,7 +34,10 @@ class PropertySearch extends Component {
       <button onClick={this.search}>Go</button><button>My Location</button>
       {
         this.props.mode === 'init' ?
-          <RecentSearchesList searches={this.props.recentSearches}/> :
+          <RecentSearchesList
+            searches={this.props.recentSearches}
+            onSearch={this.props.search}
+          /> :
           <div/>
       }
     </div>

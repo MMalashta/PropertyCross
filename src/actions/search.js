@@ -1,4 +1,10 @@
-import { SEARCH, ADD_TO_RECENT_SEARCHES, UPDATE_PROPERTIES_LIST, routs } from '../constants'
+import {
+  SEARCH,
+  ADD_TO_RECENT_SEARCHES,
+  REORDER_RECENT_SEARCHES,
+  UPDATE_PROPERTIES_LIST,
+  routs
+} from '../constants'
 import { push } from 'react-router-redux'
 import { search as searchApi } from '../api'
 
@@ -14,7 +20,12 @@ export const addToRecentSearches = (term, total) => ({
   total
 })
 
-export const search = (term) => (dispatch) => searchApi(term)
+export const reorderRecentSearches = (index) => ({
+  type: REORDER_RECENT_SEARCHES,
+  index
+})
+
+export const search = (term, recentIndex) => (dispatch) => searchApi(term)
   .then(({ response }) => {
     const { application_response_code: responseCode } = response
 
@@ -25,6 +36,8 @@ export const search = (term) => (dispatch) => searchApi(term)
         total: response.total_results
       }))
       dispatch(push(routs.SEARCH_RESULTS))
-      dispatch(addToRecentSearches(term, response.total_results))
+      recentIndex ?
+        dispatch(reorderRecentSearches(recentIndex)):
+        dispatch(addToRecentSearches(term, response.total_results))
     }
   })
