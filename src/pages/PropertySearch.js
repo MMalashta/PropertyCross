@@ -44,7 +44,7 @@ class PropertySearch extends Component {
   }
 }
 
-export default connect(({ search: { mode, recentSearches } }) => ({mode, recentSearches}), {
+export default connect(({ search: { mode }, recentSearches }) => ({mode, recentSearches}), {
   search,
   push
 })(PropertySearch)
