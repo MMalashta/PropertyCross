@@ -1,4 +1,11 @@
-export { default as Favourites } from './Favourites'
-export { default as PropertySearch } from './PropertySearch'
-export { default as PropertyListing } from './PropertyListing'
-export { default as SearchResults } from './SearchResults'
+import { default as Favourites } from './Favourites'
+import { default as PropertySearch } from './PropertySearch'
+import { default as PropertyListing } from './PropertyListing'
+import { default as SearchResults } from './SearchResults'
+
+module.exports = {
+  Favourites,
+  PropertySearch,
+  PropertyListing,
+  SearchResults
+}
