@@ -5,6 +5,7 @@ import {
   UPDATE_PROPERTIES_LIST,
   APPEND_TO_PROPERTIES_LIST,
   GET_SINGLE_PROPERTY,
+  CLEAR_SINGLE_PROPERTY,
   routs
 } from '../constants'
 import { push } from 'react-router-redux'
@@ -16,10 +17,12 @@ export const updatePropertiesList = (properties, status) => ({
   status
 })
 
-export const getSinglePropery = (property) => ({
+export const getSingleProperty = (property) => ({
   type: GET_SINGLE_PROPERTY,
   property
 })
+
+export const clearSingleProperty = () => ({type: CLEAR_SINGLE_PROPERTY})
 
 export const addToRecentSearches = (term, total) => ({
   type: ADD_TO_RECENT_SEARCHES,

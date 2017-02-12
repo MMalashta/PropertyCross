@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropertyListItem from './PropertyListItem'
-import { getSinglePropery } from '../actions/search.js'
+import { getSingleProperty } from '../actions/search'
 import { push } from 'react-router-redux'
 import { routs } from '../constants'
 
@@ -15,12 +15,17 @@ class PropertiesList extends Component {
   render() {
     return <div>
       {this.props.properties.map((property) =>
-        <PropertyListItem property={property} getProperty={this.props.getSinglePropery}/>)}
+        <PropertyListItem
+          property={property}
+          getProperty={this.props.getSingleProperty}
+          key={property.lister_url}
+        />
+      )}
     </div>
   }
 }
 
 export default connect(({ current }) => ({current}), {
-  getSinglePropery,
+  getSingleProperty,
   push
 })(PropertiesList)

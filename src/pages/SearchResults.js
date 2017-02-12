@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropertiesList from '../components/PropertiesList'
-import { loadMoreProperties } from '../actions/search.js'
+import { loadMoreProperties } from '../actions/search'
 
 class SearchResults extends Component {
   constructor(props) {

@@ -1,13 +1,14 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import PropertiesList from '../components/PropertiesList'
 
-const Favourites = ({ properties = [] }) => <div className='favourites-form'>
+const Favourites = ({ favourites }) => <div className='favourites-form'>
   <span>Favourites</span>
   {
-    properties.length ?
-      <PropertiesList properties={properties}/> :
+    favourites.length ?
+      <PropertiesList properties={favourites}/> :
       <span>You have not added any properties to your favourites</span>
   }
 </div>
 
-export default Favourites
+export default connect(({ favourites }) => ({favourites}))(Favourites)
