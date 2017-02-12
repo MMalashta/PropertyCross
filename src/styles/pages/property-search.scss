@@ -1,2 +1,32 @@
 .property-search-form {
+  .instructional-text {
+    padding: 30px 10px 0 10px;
+    font-size: 14px;
+  }
+  .search-form {
+    padding: 0 5px 5px 5px;
+    input[type=text] {
+      width: 100%;
+      height: 30px;
+    }
+    .row {
+      margin: 5px;
+      .btn {
+        height: 35px;
+        margin-right: 10px;
+      }
+    }
+  }
+  .recent-searches {
+    height: 385px;
+    padding: 0 10px 10px 10px;
+    .recent-title {
+      padding: 0 5px 5px 5px;
+    }
+    .recent-searches-list {
+      height: 355px;
+      padding: 5px;
+      border: 2px solid black;
+    }
+  }
 }
