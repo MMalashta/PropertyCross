@@ -3,7 +3,9 @@ import { connect } from 'react-redux'
 import PropertiesList from '../components/PropertiesList'
 
 const Favourites = ({ favourites }) => <div className='favourites-form'>
-  <span>Favourites</span>
+  <div className="page-title">
+    <span className="title">Favourites</span>
+  </div>
   {
     favourites.length ?
       <PropertiesList properties={favourites}/> :

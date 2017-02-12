@@ -1,0 +1,30 @@
+#root {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 600px;
+  margin: -300px 0 0 -200px;
+  background: #f0f0f0;
+}
+
+.page-title {
+  width: 400px;
+  height: 40px;
+  padding: 10px;
+  text-align: center;
+  .title {
+    font-weight: bold;
+  }
+  .fav-button {
+    padding: 0;
+    min-width: 50px;
+    float: right;
+  }
+}
+
+.property-list-item {
+  width: 380px;
+  border: 2px solid black;
+  margin-bottom: 5px;
+}

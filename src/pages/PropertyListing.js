@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addToFavourites, removeFromFavourites } from '../actions/favourites'
 import { clearSingleProperty } from '../actions/search'
+import { Button } from 'react-bootstrap'
 
 class PropertyListing extends Component {
   constructor(props) {
@@ -42,14 +43,16 @@ class PropertyListing extends Component {
       { current } = this.props
 
     return <div className='property-listing-form'>
-      <span>Property Details</span>
+      <div className="page-title">
+        <span className="title">Property Details</span>
+        {
+          isFav ?
+            <Button className="fav-button" onClick={this.removeFromFavourites}>-</Button> :
+            <Button className="fav-button" onClick={this.addToFavourites}>+</Button>
+        }
+      </div>
       <div>{current.price_formatted}</div>
       <div>{current.title}</div>
-      {
-        isFav ?
-          <button onClick={this.removeFromFavourites}>-</button> :
-          <button onClick={this.addToFavourites}>+</button>
-      }
     </div>
   }
 }

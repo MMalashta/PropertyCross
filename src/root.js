@@ -5,6 +5,7 @@ import { syncHistoryWithStore } from 'react-router-redux'
 import { Provider } from 'react-redux'
 import { Favourites, PropertySearch, PropertyListing, SearchResults } from './pages'
 import store from './store'
+import './styles/main.scss'
 
 const history = syncHistoryWithStore(browserHistory, store)
 

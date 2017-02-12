@@ -13,7 +13,7 @@ class PropertiesList extends Component {
   }
 
   render() {
-    return <div>
+    return <div className={this.props.className}>
       {this.props.properties.map((property) =>
         <PropertyListItem
           property={property}

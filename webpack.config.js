@@ -22,6 +22,10 @@ export default {
         test: /\.js$/,
         loaders: ['react-hot-loader', 'babel-loader'],
         include: `${__dirname}/src/`
+      },
+      {
+        test: /\.(scss|sass|css)$/,
+        loader: 'style-loader!css-loader!sass-loader?cacheDirectory'
       }
     ]
   }

@@ -4,6 +4,7 @@ import { push } from 'react-router-redux'
 import { Header, InstructionalText, RecentSearchesList } from '../components/propertySearch'
 import { search } from '../actions/search.js'
 import { routs } from '../constants'
+import '../styles/pages/property-search.scss'
 
 class PropertySearch extends Component {
   constructor(props) {

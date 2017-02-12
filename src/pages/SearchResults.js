@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropertiesList from '../components/PropertiesList'
 import { loadMoreProperties } from '../actions/search'
+import { Button } from 'react-bootstrap'
+import '../styles/pages/search-results.scss'
 
 class SearchResults extends Component {
   constructor(props) {
@@ -36,13 +38,15 @@ class SearchResults extends Component {
       { loading, isMore } = this.state
 
     return <div className='search-result-form'>
-      <span>{`${properties.length} of ${status.total} matches`}</span>
-      <PropertiesList properties={properties} />
+      <div className="page-title">
+        <span className="title">{`${properties.length} of ${status.total} matches`}</span>
+      </div>
+      <PropertiesList className='properties-list' properties={properties} />
       {
         isMore ?
-          <button onClick={this.loadMore}>
+          <Button className='search-result-form pull-right' bsStyle="primary" onClick={this.loadMore}>
             {loading ? "Loading..." : "Load more..."}
-          </button>:
+          </Button>:
           null
       }
     </div>
