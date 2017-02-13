@@ -21,7 +21,7 @@ class Form extends Component {
     return <form className="search-form" onSubmit={this.submit}>
       <Row><input type="text" ref="input"/></Row>
       <Row>
-        <Button type="sabmit">Go</Button>
+        <Button type="submit">Go</Button>
         <Button>My Location</Button>
       </Row>
     </form>

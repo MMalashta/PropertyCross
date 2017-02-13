@@ -5,8 +5,8 @@ const PropertyListItem = ({ property, getProperty }) => {
   const getPropertyItem = () => getProperty(property)
 
   return <Row onClick={getPropertyItem} className="property-list-item">
-    <Col md={3}><img src={property.thumb_url}/></Col>
-    <Col md={9}>
+    <Col md={3} className="image-wrapper"><img src={property.thumb_url}/></Col>
+    <Col md={9} className="description-wrapper">
       <Row>{property.price_formatted}</Row>
       <Row>{property.title}</Row>
     </Col>

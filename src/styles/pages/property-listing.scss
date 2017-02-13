@@ -1,0 +1,25 @@
+.property-listing-form {
+  .property-general {
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    .row {
+      margin: 0px;
+    }
+  }
+  .property-image {
+    margin: 10px;
+    text-align: center;
+    img {
+      width: 100%;
+    }
+  }
+  .property-summary {
+    margin: 10px;
+    div {
+      margin-top: 5px;
+      height: 130px;
+      overflow-y: auto;
+    }
+  }
+}

@@ -41,10 +41,10 @@ class SearchResults extends Component {
       <div className="page-title">
         <span className="title">{`${properties.length} of ${status.total} matches`}</span>
       </div>
-      <PropertiesList className='properties-list' properties={properties} />
+      <PropertiesList className={isMore ? "properties-list" : "favourites-list"} properties={properties} />
       {
         isMore ?
-          <Button className='search-result-form pull-right' bsStyle="primary" onClick={this.loadMore}>
+          <Button className='search-result-button pull-right' bsStyle="primary" onClick={this.loadMore}>
             {loading ? "Loading..." : "Load more..."}
           </Button>:
           null

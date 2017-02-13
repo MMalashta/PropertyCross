@@ -1,0 +1,27 @@
+.properties-list {
+  height: 510px;
+  margin: 5px;
+  overflow-y: auto;
+}
+
+.favourites-list {
+  height: 550px;
+  margin: 5px;
+  overflow-y: auto;
+}
+
+.property-list-item {
+  width: 98%;
+  border: 2px solid black;
+
+  margin: auto;
+  margin-bottom: 5px;
+  .image-wrapper {
+    padding: 2px;
+  }
+  .description-wrapper {
+    .row {
+      width: 98%;
+    }
+  }
+}

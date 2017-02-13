@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addToFavourites, removeFromFavourites } from '../actions/favourites'
 import { clearSingleProperty } from '../actions/search'
-import { Button } from 'react-bootstrap'
+import { Button, Row } from 'react-bootstrap'
+import pluralize from 'pluralize'
+import '../styles/pages/property-listing.scss'
 
 class PropertyListing extends Component {
   constructor(props) {
@@ -51,8 +53,15 @@ class PropertyListing extends Component {
             <Button className="fav-button" onClick={this.addToFavourites}>+</Button>
         }
       </div>
-      <div>{current.price_formatted}</div>
-      <div>{current.title}</div>
+      <div className="property-general">
+        <Row>{current.price_formatted}</Row>
+        <Row>{current.title.split(', ').slice(0,2).join(', ')}</Row>
+      </div>
+      <div className="property-image"><img src={current.img_url}/></div>
+      <div className="property-summary">
+        {`${current.bedroom_number} ${pluralize('bed', current.bedroom_number)}, ${current.bathroom_number} ${pluralize('bathroom', current.bathroom_number)}`}
+        <div>{current.summary}</div>
+      </div>
     </div>
   }
 }

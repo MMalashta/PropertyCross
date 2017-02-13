@@ -4,6 +4,7 @@ import PropertyListItem from './PropertyListItem'
 import { getSingleProperty } from '../actions/search'
 import { push } from 'react-router-redux'
 import { routs } from '../constants'
+import '../styles/components/properties-list.scss'
 
 class PropertiesList extends Component {
   componentWillReceiveProps(nextProps) {
