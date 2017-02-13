@@ -22,7 +22,6 @@ class Form extends Component {
       <Row><input type="text" ref="input"/></Row>
       <Row>
         <Button type="submit">Go</Button>
-        <Button>My Location</Button>
       </Row>
     </form>
   }

@@ -5,7 +5,9 @@ const RecentSearchesList = ({ searches, onSearch }) => <div className="recent-se
   <div className="recent-searches-list">
     {
       searches.map((search, idx) => {
-        return <div onClick={() => onSearch(search.term, idx)}>{`${search.term} (${search.total})`}</div>
+        return <div onClick={() => onSearch(search.term, idx)} key={search.id}>
+          {`${search.term} (${search.total})`}
+        </div>
       })
     }
   </div>
