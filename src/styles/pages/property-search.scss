@@ -27,6 +27,12 @@
       height: 355px;
       padding: 5px;
       border: 2px solid black;
+      div {
+        padding: 5px;
+      }
     }
+  }
+  .error-message {
+    padding: 10px;
   }
 }

@@ -1,4 +1,6 @@
 export const SEARCH = 'SEARCH'
+export const CHANGE_MODE = 'CHANGE_MODE'
+export const THROW_ERROR = 'THROW_ERROR'
 export const ADD_TO_RECENT_SEARCHES = 'ADD_TO_RECENT_SEARCHES'
 export const REORDER_RECENT_SEARCHES = 'REORDER_RECENT_SEARCHES'
 export const UPDATE_PROPERTIES_LIST = 'UPDATE_PROPERTIES_LIST'
@@ -13,4 +15,14 @@ export const routs = {
   FAVOURITES: '/favourites',
   SEARCH_RESULTS: '/search-results',
   PROPERTY: '/property/'
+}
+
+export const modes = {
+  INIT: 'init',
+  ERROR: 'error'
+}
+
+export const errors = {
+  ZERO_PROPS: 'Zero properties returned',
+  UNKNOWN: 'Location not found'
 }

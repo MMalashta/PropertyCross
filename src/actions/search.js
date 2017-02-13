@@ -1,11 +1,15 @@
 import {
   SEARCH,
+  CHANGE_MODE,
+  THROW_ERROR,
   ADD_TO_RECENT_SEARCHES,
   REORDER_RECENT_SEARCHES,
   UPDATE_PROPERTIES_LIST,
   APPEND_TO_PROPERTIES_LIST,
   GET_SINGLE_PROPERTY,
   CLEAR_SINGLE_PROPERTY,
+  errors,
+  modes,
   routs
 } from '../constants'
 import { push } from 'react-router-redux'
@@ -35,21 +39,37 @@ export const reorderRecentSearches = (index) => ({
   index
 })
 
+export const throwError = (message) => ({
+  type: THROW_ERROR,
+  message
+})
+
+export const changeMode = (mode) => ({type: CHANGE_MODE, mode})
+
 export const search = (term, recentIndex) => (dispatch) => searchApi(term)
   .then(({ response }) => {
-    const { application_response_code: responseCode } = response
+    const { application_response_code: responseCode, listings } = response
 
     if (responseCode >= 100 && responseCode < 200) {
-      dispatch(updatePropertiesList(response.listings, {
-        page: response.page,
-        tatalPages: response.total_pages,
-        total: response.total_results,
-        term
-      }))
-      dispatch(push(routs.SEARCH_RESULTS))
-      recentIndex ?
-        dispatch(reorderRecentSearches(recentIndex)):
-        dispatch(addToRecentSearches(term, response.total_results))
+      if (listings.length) {
+        dispatch(updatePropertiesList(listings, {
+          page: response.page,
+          tatalPages: response.total_pages,
+          total: response.total_results,
+          term
+        }))
+        dispatch(push(routs.SEARCH_RESULTS))
+        dispatch(changeMode(modes.INIT))
+        recentIndex !== undefined ?
+          dispatch(reorderRecentSearches(recentIndex)):
+          dispatch(addToRecentSearches(term, response.total_results))
+      } else {
+        dispatch(throwError(errors.ZERO_PROPS))
+      }
+    }
+
+    if (responseCode == 200) {
+      dispatch(throwError(errors.UNKNOWN))
     }
   })
 
